@@ -70,7 +70,6 @@
 }
 
 .ingame {
-    display: none;
     color: lightskyblue;
 }
 
@@ -80,4 +79,33 @@
 
 .robot {
     opacity: 0.5;
+}
+
+#replay {
+    margin-top: 20px;
+    width: 150px;
+    height: 100px;
+    background-color: #87CEFA;
+    line-height: 100px;
+    text-align: center;
+    border-radius: 50px;
+    -webkit-border-radius: 50px;
+    -moz-border-radius: 50px;
+    color: white;
+    margin-left: auto;
+    margin-right: auto;
+    cursor: pointer;
+    opacity: 0.5;
+}
+
+#replay:hover {
+    opacity: 1;
+}
+
+#won,
+#lost,
+#draw,
+#human,
+#ai {
+    display: none;
 }

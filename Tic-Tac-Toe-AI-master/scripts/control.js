@@ -27,7 +27,7 @@ $(".level").each(function() {
  */
 $(".start").click(function() {
     var selectedDiffeculty = $('.selected').attr("id");
-    if(typeof selectedDiffeculty !== "undefined") {
+    if (typeof selectedDiffeculty !== "undefined") {
         var aiPlayer = new AI(selectedDiffeculty);
         globals.game = new Game(aiPlayer);
 
@@ -43,21 +43,24 @@ $(".start").click(function() {
  * get the indecies of the clickd cell, craete the next game state, upadet the UI, and
  * advance the game to the new created state
  */
- $(".cell").each(function() {
-     var $this = $(this);
-     $this.click(function() {
-         if(globals.game.status === "running" && globals.game.currentState.turn === "X" && !$this.hasClass('occupied')) {
-             var indx = parseInt($this.data("indx"));
+$(".cell").each(function() {
+    var $this = $(this);
+    $this.click(function() {
+        if (globals.game.status === "running" && globals.game.currentState.turn === "X" && !$this.hasClass('occupied')) {
+            var indx = parseInt($this.data("indx"));
 
-             var next = new State(globals.game.currentState);
-             next.board[indx] = "X";
+            var next = new State(globals.game.currentState);
+            next.board[indx] = "X";
 
-             ui.insertAt(indx, "X");
+            ui.insertAt(indx, "X");
 
-             next.advanceTurn();
+            next.advanceTurn();
 
-             globals.game.advanceTo(next);
+            globals.game.advanceTo(next);
 
-         }
-     })
- });
+        }
+    })
+});
+$("#replay").click(function() {
+    location.reload(true);
+});
